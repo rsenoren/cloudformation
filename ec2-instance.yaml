@@ -11,3 +11,11 @@ Resources:
       "Tags" : [
             {"Key" : "Name", "Value" : "Ronald-cloudformation-test-s3bucket"},
         ]  
+
+
+Resources:
+  S3Bucket:
+    Type: "AWS::S3::Bucket"
+    DeletionPolicy: "Retain"
+    Properties:
+      BucketName: "Ronald-ec2-cftbucket202"
