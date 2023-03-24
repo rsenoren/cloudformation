@@ -1,21 +1,18 @@
-AWSTemplateFormatVersion: 2010-09-09
-Description: Part 1 - Build a webapp stack with CloudFormation 
 
+AWSTemplateFormatVersion: "2010-09-09"
+Description: A sample template
 Resources:
-  WebAppInstance202:
-    Type: AWS::EC2::Instance
-    Properties:
-      ImageId: ami-005f9685cb30f234b
-      #ImageId: ami-0d5eff06f840b45e9 # ImageID valid only in us-east-1 region
+  ronaldec2instance: #An inline comment
+    Type: "AWS::EC2::Instance"
+    Properties: 
+      ImageId: "ami-02f3f602d23f1659d" #Another comment -- This is a Linux AMI
       InstanceType: t2.micro
-      "Tags" : [
-            {"Key" : "Name", "Value" : "ronald-cloudformation-test-s3bucket"},
-        ]  
-
-
-Resources:
-  S3Bucket:
-    Type: "AWS::S3::Bucket"
-    DeletionPolicy: "Retain"
-    Properties:
-      BucketName: "ronald-ec2-cftbucket202"
+      KeyName: MyKey
+      BlockDeviceMappings:
+        -
+          DeviceName: /dev/sdm
+          Ebs:
+            VolumeType: io1
+            Iops: 200
+            DeleteOnTermination: false
+            VolumeSize: 20
