@@ -1,8 +1,13 @@
-AWSTemplateFormatVersion: "2010-09-09"
+AWSTemplateFormatVersion: 2010-09-09
+Description: Part 1 - Build a webapp stack with CloudFormation 
+
 Resources:
-  EC2Instance:
-    Type: "AWS::EC2::Instance"
+  WebAppInstanceEC2:
+    Type: AWS::EC2::Instance
     Properties:
-      ImageId: "ami-02f3f602d23f1659d"
-      InstanceType: "t2.micro"
-      KeyName: "ronald-jenkins"
+      ImageId: ami-005f9685cb30f234b
+      #ImageId: ami-0d5eff06f840b45e9 # ImageID valid only in us-east-1 region
+      InstanceType: t2.micro
+      "Tags" : [
+            {"Key" : "Name", "Value" : "ronald-cloudformation-testForEC2"},
+        ]        
